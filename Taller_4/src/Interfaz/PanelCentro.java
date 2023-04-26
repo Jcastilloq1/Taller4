@@ -63,6 +63,8 @@ public class PanelCentro extends JPanel implements MouseListener
                     g.fillRect( i*ancho, j*alto, ancho, alto );
                     g.setColor( Color.BLACK );
                     g.drawRect( i*ancho, j*alto, ancho, alto );
+                    ImageIcon icono = new ImageIcon("./data/luz.png");
+                    g.drawImage(icono.getImage(), i * ancho, j * alto, ancho, alto, null);
                     
                     
                 }
@@ -74,9 +76,8 @@ public class PanelCentro extends JPanel implements MouseListener
                     g.setColor( Color.BLUE );
                     g.drawRect( i*ancho, j*alto, ancho, alto );
                     etiquetaImagen = new JLabel( );
-                    add(etiquetaImagen);
-                    ImageIcon icono= new ImageIcon( "./data/luz.jpg" );
-                    etiquetaImagen.setIcon( icono );
+                    ImageIcon icono = new ImageIcon("./data/luz.png");
+                    g.drawImage(icono.getImage(), i * ancho, j * alto, ancho, alto, null);
                 }
                 
                 
