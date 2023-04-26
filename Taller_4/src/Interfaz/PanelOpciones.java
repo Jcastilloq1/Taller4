@@ -1,5 +1,6 @@
 package Interfaz;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.border.TitledBorder;
@@ -32,21 +34,16 @@ public class PanelOpciones extends JPanel implements ActionListener
     private JButton btnReiniciar;
     private JButton btnTop10;
     private JButton btnCambiarJ;
-    private JLabel labelJugador;
-    private JTextField nombreJugador;
     private JDialog dialogIngNombre;
     private JDialog dialogTop;
-    private VentanaPrincipal principal;    
-    private Tablero tablero;
-    private PanelNorte panelNorte;
-    private PanelCentro panelCentro;    
-    private JList rank10;    
-    private int dificultad;    
-    private Collection<RegistroTop10> listadoNombres;
+    private VentanaPrincipal principal; 
+    private JList rank10;     
+    private JList listadoNombres;
     private JLabel espacio;
     private Top10 top10;
     private String nombre;
-    private File archivoTop10;
+    private JScrollPane scrollableTextArea;
+    private Collection<RegistroTop10> nombres;
     
     public PanelOpciones(VentanaPrincipal principal)
     {
@@ -123,12 +120,23 @@ public class PanelOpciones extends JPanel implements ActionListener
         {
         	dialogTop = new JDialog(principal);  
             dialogTop.setLocationRelativeTo(principal);
-            listadoNombres = top10.darRegistros();
+            nombres = top10.darRegistros();
             rank10 = new JList();
+            rank10 = new JList();
+            JScrollPane scrollableTextArea = new JScrollPane(rank10);
+            scrollableTextArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);  
+            dialogTop.getContentPane().add(scrollableTextArea);
             rank10.setBorder(new TitledBorder("Rank"));
-            dialogTop.add(rank10);
-            dialogTop.setSize(400,500);
+            dialogTop.setSize(350,250);
+            dialogTop.setResizable(false);
             dialogTop.setVisible(true);
+            
+            //for (int i = 0; i < nombres.size(); i++)
+            	
+            	//rank10.add(nombres[i]);
+            
+            
+            
    
         	
         }

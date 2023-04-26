@@ -22,9 +22,9 @@ public class PanelCentro extends JPanel implements MouseListener
 	private VentanaPrincipal principal;
 	private JLabel dibujoLuz;
 	private boolean tableroIluminado;
-	private Top10 top10;
 	private JLabel lblImagen;
 	private ImageIcon icono;
+	private JLabel etiquetaImagen;
 	
 	public PanelCentro( VentanaPrincipal pPrincipal)
     {
@@ -68,6 +68,10 @@ public class PanelCentro extends JPanel implements MouseListener
                     g.fillRect( i*ancho, j*alto, ancho, alto );
                     g.setColor( Color.BLUE );
                     g.drawRect( i*ancho, j*alto, ancho, alto );
+                    etiquetaImagen = new JLabel( );
+                    add(etiquetaImagen);
+                    ImageIcon icono= new ImageIcon( "./data/luz.jpg" );
+                    etiquetaImagen.setIcon( icono );
                 }
                 
                 

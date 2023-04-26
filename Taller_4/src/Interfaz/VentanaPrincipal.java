@@ -19,7 +19,7 @@ public class VentanaPrincipal extends JFrame
     private PanelOpciones panelOpciones;
     private PanelSur panelSur;
     private PanelNorte panelNorte;
-    private PanelCentro panelTabla;
+    private PanelCentro panelCentro;
     private int tamano;
     private int dificultad;
     private int seleccionado;
@@ -60,8 +60,8 @@ public class VentanaPrincipal extends JFrame
         panelSur = new PanelSur( this);
         add(panelSur, BorderLayout.SOUTH);
         
-        panelTabla = new PanelCentro(this);
-        add(panelTabla, BorderLayout.CENTER);
+        panelCentro = new PanelCentro(this);
+        add(panelCentro, BorderLayout.CENTER);
         
         addWindowListener(new WindowAdapter()
         {
