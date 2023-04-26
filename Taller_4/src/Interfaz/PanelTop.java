@@ -1,10 +1,14 @@
 package Interfaz;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Collection;
 
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -40,8 +44,30 @@ public class PanelTop extends JDialog implements ActionListener
             elementos[posicion - 1] = panelito;
             posicion++;
         }
+        
+        DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+
+                // Color verde para las primeras 3 posiciones
+                if (index == 0 || index == 1 || index == 2) {
+                    label.setForeground(Color.GREEN.darker());
+                    label.setFont(label.getFont().deriveFont(Font.BOLD));
+                }
+                // Color rojo para las últimas 3 posiciones
+                else if (index == list.getModel().getSize() - 3 || index == list.getModel().getSize() - 2 || index == list.getModel().getSize() - 1) {
+                    label.setForeground(Color.RED);
+                    label.setFont(label.getFont().deriveFont(Font.BOLD));
+                }
+                return label;
+            }
+        };
 
         JList<String> rank10 = new JList<>(elementos);
+        rank10.setCellRenderer(renderer);
         JScrollPane scrollableTextArea = new JScrollPane(rank10);
         scrollableTextArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);  
         dialogTop.getContentPane().add(scrollableTextArea);

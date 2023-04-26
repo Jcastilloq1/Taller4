@@ -49,6 +49,7 @@ public class VentanaPrincipal extends JFrame
         dificultad = 1;
         tablero = new Tablero(tamano);
         tablero.desordenar(dificultad);
+        top10 = new Top10();
         
         setSize( 900,650 );
         setDefaultCloseOperation( DISPOSE_ON_CLOSE );
