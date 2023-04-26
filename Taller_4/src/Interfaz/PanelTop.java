@@ -23,24 +23,24 @@ public class PanelTop extends JDialog implements ActionListener
 {
 	
 	private RegistroTop10 registroTop10;
-	private Top10 top10;
 	private JDialog dialogTop;
 	private Collection<RegistroTop10> nombres;
 	private JList<String> rank10;
+	private Top10 p10;
 	
-	public PanelTop(VentanaPrincipal principal)
+	public PanelTop(VentanaPrincipal principal, Top10 p10)
     {
-		top10 = new Top10();
-		top10.cargarRecords(new File("./data/top10.csv"));
+		this.p10 = p10;
+		p10.cargarRecords(new File("./data/top10.csv"));
 		dialogTop = new JDialog(principal);  
         dialogTop.setLocationRelativeTo(principal);
-        nombres = top10.darRegistros();
+        nombres = p10.darRegistros();
         String[] elementos = new String[10];
 
         int posicion = 1;
-        for (RegistroTop10 i : nombres) 
+        for (RegistroTop10 registroTop10 : nombres) 
         {
-            String panelito = (posicion + ".     " + i.darNombre() + "               " + i.darPuntos());
+            String panelito = (posicion + ".     " + registroTop10.darNombre() + "               " + registroTop10.darPuntos());
             elementos[posicion - 1] = panelito;
             posicion++;
         }
@@ -78,7 +78,8 @@ public class PanelTop extends JDialog implements ActionListener
         
     }
 
-   
+
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

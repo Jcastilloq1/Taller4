@@ -59,7 +59,7 @@ public class VentanaPrincipal extends JFrame
         panelNorte= new PanelNorte(this);
         add(panelNorte, BorderLayout.NORTH);
         
-        panelOpciones = new PanelOpciones(this);
+        panelOpciones = new PanelOpciones(this, top10);
         add(panelOpciones, BorderLayout.EAST);
         
         panelSur = new PanelSur( this);

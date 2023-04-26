@@ -40,17 +40,16 @@ public class PanelOpciones extends JPanel implements ActionListener
     private JList rank10;     
     private JList listadoNombres;
     private JLabel espacio;
-    private Top10 top10;
     private String nombre;
     private JScrollPane scrollableTextArea;
     private Collection<RegistroTop10> nombres;
     private PanelTop panelTop;
+	private Top10 p10;
     
-    public PanelOpciones(VentanaPrincipal principal)
+    public PanelOpciones(VentanaPrincipal principal, Top10 p10)
     {
-
-    	top10 = new Top10();
-    	top10.cargarRecords(new File("./data/top10.csv"));
+    	this.p10 = p10;
+    	p10.cargarRecords(new File("./data/top10.csv"));
     	this.principal=principal;
         
         setLayout( new GridLayout( 9,1 ) );
@@ -87,8 +86,10 @@ public class PanelOpciones extends JPanel implements ActionListener
       
     }
     
-    
-    
+ 
+
+
+
 
 	@Override
 	public void actionPerformed( ActionEvent e )
@@ -119,7 +120,7 @@ public class PanelOpciones extends JPanel implements ActionListener
         
         else if(e.getSource()== btnTop10)
         {
-        	panelTop = new PanelTop(principal);
+        	panelTop = new PanelTop(principal, p10);
             
         }
         else if(e.getSource()== btnCambiarJ)
@@ -135,7 +136,7 @@ public class PanelOpciones extends JPanel implements ActionListener
 
 	public void agregarRegistro(int puntaje)
 	{
-		top10.agregarRegistro(nombre, puntaje);
+		p10.agregarRegistro(nombre, puntaje);
 		
 	}
 	
