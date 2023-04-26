@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
@@ -27,12 +28,14 @@ public class PanelCentro extends JPanel implements MouseListener
 	private JLabel lblImagen;
 	private ImageIcon icono;
 	private JLabel etiquetaImagen;
+	private File fileName;
 	
 	public PanelCentro( VentanaPrincipal pPrincipal)
     {
         principal = pPrincipal;
         addMouseListener( this );
         add(new JLabel("                                                                                                " ));
+        fileName = new File("./data/top10.csv");
         
     }
     
@@ -111,7 +114,7 @@ public class PanelCentro extends JPanel implements MouseListener
 			int puntaje = principal.darPuntaje();
 			principal.agregarRegistro(puntaje);
 			try {
-				principal.salvarRegistro(null);
+				principal.salvarRegistro(fileName);
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
