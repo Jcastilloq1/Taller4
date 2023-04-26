@@ -52,12 +52,11 @@ public class PanelTop extends JDialog implements ActionListener
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
-                // Color verde para las primeras 3 posiciones
                 if (index == 0 || index == 1 || index == 2) {
                     label.setForeground(Color.GREEN.darker());
                     label.setFont(label.getFont().deriveFont(Font.BOLD));
                 }
-                // Color rojo para las últimas 3 posiciones
+
                 else if (index == list.getModel().getSize() - 3 || index == list.getModel().getSize() - 2 || index == list.getModel().getSize() - 1) {
                     label.setForeground(Color.RED);
                     label.setFont(label.getFont().deriveFont(Font.BOLD));
