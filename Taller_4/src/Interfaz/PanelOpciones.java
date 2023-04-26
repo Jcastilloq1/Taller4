@@ -44,6 +44,7 @@ public class PanelOpciones extends JPanel implements ActionListener
     private String nombre;
     private JScrollPane scrollableTextArea;
     private Collection<RegistroTop10> nombres;
+    private PanelTop panelTop;
     
     public PanelOpciones(VentanaPrincipal principal)
     {
@@ -118,27 +119,8 @@ public class PanelOpciones extends JPanel implements ActionListener
         
         else if(e.getSource()== btnTop10)
         {
-        	dialogTop = new JDialog(principal);  
-            dialogTop.setLocationRelativeTo(principal);
-            nombres = top10.darRegistros();
-            rank10 = new JList();
-            rank10 = new JList();
-            JScrollPane scrollableTextArea = new JScrollPane(rank10);
-            scrollableTextArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);  
-            dialogTop.getContentPane().add(scrollableTextArea);
-            rank10.setBorder(new TitledBorder("Rank"));
-            dialogTop.setSize(350,250);
-            dialogTop.setResizable(false);
-            dialogTop.setVisible(true);
+        	panelTop = new PanelTop(principal);
             
-            //for (int i = 0; i < nombres.size(); i++)
-            	
-            	//rank10.add(nombres[i]);
-            
-            
-            
-   
-        	
         }
         else if(e.getSource()== btnCambiarJ)
         {

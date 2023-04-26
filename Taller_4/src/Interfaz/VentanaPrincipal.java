@@ -4,6 +4,9 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -26,6 +29,7 @@ public class VentanaPrincipal extends JFrame
     private int seleccionadoD;
     private int jugadas;
     private Top10 top10;
+    private File nombreFile;
     
     
     private boolean[][] matriz;
@@ -160,6 +164,11 @@ public class VentanaPrincipal extends JFrame
 	public void agregarRegistro(int puntaje) 
 	{
 		panelOpciones.agregarRegistro(puntaje);
+	}
+	
+	public void salvarRegistro(File nombreFile) throws FileNotFoundException, UnsupportedEncodingException
+	{
+		top10.salvarRecords(nombreFile);
 	}
     
 }

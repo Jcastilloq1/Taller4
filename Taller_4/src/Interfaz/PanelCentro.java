@@ -10,6 +10,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -108,6 +110,15 @@ public class PanelCentro extends JPanel implements MouseListener
 			JOptionPane.showMessageDialog(principal, "GANASTE!!!", "Alert", JOptionPane.INFORMATION_MESSAGE);
 			int puntaje = principal.darPuntaje();
 			principal.agregarRegistro(puntaje);
+			try {
+				principal.salvarRegistro(null);
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
 		}
         
